@@ -37,16 +37,35 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Send form data to Formspree
+      const res = await fetch("https://formspree.io/f/mqeekezw", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
 
-    toast({
-      title: "Message sent! ✨",
-      description: "Thanks for reaching out. I'll get back to you soon!",
-    });
+      if (!res.ok) throw new Error("Failed to send message");
 
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+      toast({
+        title: "Message sent! ✨",
+        description: "Thanks for reaching out. I'll get back to you soon!",
+      });
+
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -183,7 +202,7 @@ const ContactSection = () => {
                 "Sending..."
               ) : (
                 <>
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4 mr-2" />
                   Send Message
                 </>
               )}
