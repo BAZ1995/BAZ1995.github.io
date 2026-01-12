@@ -7,14 +7,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
 const contactInfo = [
-  { icon: Mail, label: "Email", value: "hello@johndeveloper.com", href: "mailto:BASILOKATA@GMAIL.COM" },
+  { icon: Mail, label: "Email", value: "basilokata@gmail.com", href: "mailto:BASILOKATA@GMAIL.COM" },
   { icon: MapPin, label: "Location", value: "San Francisco, CA", href: null },
 ];
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: Github, href: "https://github.com", label: "BAZ1995" },
+  { icon: Linkedin, href: "https://linkedin.com", label: "www.linkedin.com/in/basil-okata-515b1836b" },
+  { icon: Twitter, href: "https://twitter.com", label: "@BazMyster" },
 ];
 
 const ContactSection = () => {
