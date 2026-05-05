@@ -50,7 +50,17 @@ const AboutSection = () => {
         </motion.div>
 
         {displayStats.length > 0 && (
-        <div className={`grid gap-4 grid-cols-2 ${displayStats.length >= 4 ? "md:grid-cols-4" : `md:grid-cols-${displayStats.length}`}`}>
+        <div
+          className={`grid gap-4 grid-cols-2 ${
+            displayStats.length === 1
+              ? "md:grid-cols-1"
+              : displayStats.length === 2
+              ? "md:grid-cols-2"
+              : displayStats.length === 3
+              ? "md:grid-cols-3"
+              : "md:grid-cols-4"
+          }`}
+        >
           {displayStats.map((stat, index) => (
             <motion.div
               key={stat.label}
