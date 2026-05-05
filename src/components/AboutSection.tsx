@@ -32,10 +32,10 @@ const AboutSection = () => {
           className="space-y-4 text-muted-foreground text-lg text-center mb-12"
         >
           <p>
-            I am a results-driven ICT Support Specialist with over 5 years of proven experience in IT infrastructure management, system configuration, and delivering reliable technical solutions. I excel at minimizing downtime, optimizing system performance, and ensuring seamless operations across complex networked environments.
+            Strategic IT Professional and AWS Certified Cloud Practitioner with over 5 years of experience managing enterprise infrastructure, distributed networks, and cloud environments. Skilled at bridging on-premise hardware with modern cloud architecture, automating routine tasks with Python, and maintaining 99.9% uptime for mission-critical systems.
           </p>
           <p className="text-base">
-            As IT Officer at Valentine Growers, I oversee end-to-end technical operations including network monitoring, system administration, ICT asset management, and user support—ensuring technology serves as an enabler for business success in the agricultural sector.
+            Currently IT Officer (Infrastructure & Operations Lead) at Valentine Growers, architecting multi-site networks with FortiGate firewalls and MikroTik routers, deploying secure cloud-to-firewall VPNs, and automating monitoring workflows that reduced ticket resolution times by 30%.
           </p>
           <p className="text-sm text-primary">
             🌸 Beyond my technical expertise, I'm a passionate flower photographer specializing in capturing the intricate beauty of roses and premium export-grade florals.

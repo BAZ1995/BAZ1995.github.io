@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Twitter, Linkedin, Mail, Loader2 } from "lucide-react";
+import { Github, Twitter, Linkedin, Mail, Loader2, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useGitHub } from "@/context/GitHubContext";
 
@@ -71,7 +71,7 @@ const HeroSection = () => {
                 <span className="text-gradient">{user?.name || "Basil (Waswani) Okata"}</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                AWS Certified Cloud Practitioner | Network & Systems Administrator | Cloud & Cybersecurity Expert | ICT Support Specialist
+                Cloud Support Engineer | IT Infrastructure Specialist | AWS Certified Cloud Practitioner | Based in Nairobi, Kenya (Open to Remote)
               </p>
             </motion.div>
 
@@ -91,6 +91,12 @@ const HeroSection = () => {
               <Button variant="heroOutline" size="xl" asChild>
                 <a href="#projects">
                   View Projects
+                </a>
+              </Button>
+              <Button variant="heroOutline" size="xl" asChild>
+                <a href="/Basil_Waswani_Okata_CV.pdf" download>
+                  <FileDown className="w-5 h-5" />
+                  Download CV
                 </a>
               </Button>
             </motion.div>
