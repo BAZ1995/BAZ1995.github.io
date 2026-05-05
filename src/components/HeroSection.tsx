@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Github, Twitter, Linkedin, Mail, Loader2, FileDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useGitHub } from "@/context/GitHubContext";
+import basilAvatar from "@/assets/basil-avatar.jpg";
 
 const HeroSection = () => {
   const { user, loading, error } = useGitHub();
@@ -52,8 +53,8 @@ const HeroSection = () => {
                 <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-primary/30 to-primary/10 p-1.5 glow-primary">
                   <div className="w-full h-full rounded-full bg-card flex items-center justify-center overflow-hidden">
                     <img 
-                      src={user?.avatar_url || "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"} 
-                      alt={user?.name || "GitHub Avatar"}
+                      src={basilAvatar}
+                      alt={user?.name || "Basil Waswani Okata"}
                       className="w-full h-full object-cover"
                     />
                   </div>

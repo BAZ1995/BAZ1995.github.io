@@ -63,14 +63,18 @@ const ProjectCard = ({
           />
           <span>{language}</span>
         </div>
-        <div className="flex items-center gap-1">
-          <Star className="w-4 h-4" />
-          <span>{stars}</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <GitFork className="w-4 h-4" />
-          <span>{forks}</span>
-        </div>
+        {stars > 0 && (
+          <div className="flex items-center gap-1">
+            <Star className="w-4 h-4" />
+            <span>{stars}</span>
+          </div>
+        )}
+        {forks > 0 && (
+          <div className="flex items-center gap-1">
+            <GitFork className="w-4 h-4" />
+            <span>{forks}</span>
+          </div>
+        )}
       </div>
     </motion.a>
   );

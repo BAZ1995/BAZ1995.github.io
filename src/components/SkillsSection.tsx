@@ -1,35 +1,31 @@
 import { motion } from "framer-motion";
 
-const skills = [
-  { name: "AWS Cloud Infrastructure (EC2, S3, IAM, VPC)", level: 88, color: "bg-orange-500" },
-  { name: "Network Architecture (MikroTik, FortiGate, VPN)", level: 92, color: "bg-blue-500" },
-  { name: "Scripting & Automation (Python, Bash)", level: 85, color: "bg-yellow-500" },
-  { name: "Windows Server & Active Directory (RBAC)", level: 90, color: "bg-cyan-500" },
-  { name: "Linux Administration", level: 85, color: "bg-emerald-500" },
-  { name: "Disaster Recovery & Database Backups", level: 88, color: "bg-violet-500" },
-  { name: "ITIL Service Management & Ticketing", level: 90, color: "bg-pink-500" },
-  { name: "Cybersecurity & IAM Fundamentals", level: 85, color: "bg-red-500" },
-];
-
-const technologies = [
-  { name: "AWS (EC2, S3, IAM, VPC)", icon: "☁️" },
-  { name: "Azure Fundamentals", icon: "🌥️" },
-  { name: "Python", icon: "🐍" },
-  { name: "Bash", icon: "💻" },
-  { name: "MikroTik RouterOS", icon: "📡" },
-  { name: "FortiGate Firewall", icon: "🔥" },
-  { name: "Cisco / CCNA", icon: "🌐" },
-  { name: "Windows Server", icon: "🪟" },
-  { name: "Linux", icon: "🐧" },
-  { name: "Active Directory", icon: "🔐" },
-  { name: "VPN (Site-to-Site / Remote)", icon: "🛡️" },
-  { name: "Pi-hole / AdGuard", icon: "🚫" },
-  { name: "Hyper-V / Virtualization", icon: "📦" },
-  { name: "Backup & Disaster Recovery", icon: "💾" },
-  { name: "ITIL / Ticketing", icon: "🎫" },
-  { name: "Git & GitHub", icon: "🐙" },
-  { name: "ERP Systems", icon: "🏭" },
-  { name: "Citrix Workspace", icon: "🖥️" },
+const skillGroups = [
+  {
+    title: "Cloud & Infrastructure",
+    accent: "text-orange-400 border-orange-500/30 bg-orange-500/10",
+    items: ["AWS (EC2, S3, IAM, VPC)", "Azure Fundamentals", "Hyper-V", "Virtualization", "Disaster Recovery", "Database Backups"],
+  },
+  {
+    title: "Networking & Security",
+    accent: "text-blue-400 border-blue-500/30 bg-blue-500/10",
+    items: ["MikroTik RouterOS", "FortiGate Firewall", "Cisco / CCNA", "Site-to-Site VPN", "Remote VPN", "Pi-hole / AdGuard", "Cybersecurity", "IAM"],
+  },
+  {
+    title: "Systems Administration",
+    accent: "text-cyan-400 border-cyan-500/30 bg-cyan-500/10",
+    items: ["Windows Server", "Active Directory (RBAC)", "Linux Administration", "Citrix Workspace", "ERP Systems"],
+  },
+  {
+    title: "Scripting & Automation",
+    accent: "text-yellow-400 border-yellow-500/30 bg-yellow-500/10",
+    items: ["Python", "Bash", "Git & GitHub", "Monitoring Workflows"],
+  },
+  {
+    title: "Service Management",
+    accent: "text-pink-400 border-pink-500/30 bg-pink-500/10",
+    items: ["ITIL", "Ticketing Systems", "Incident Response", "SLA Management"],
+  },
 ];
 
 const SkillsSection = () => {
@@ -51,58 +47,29 @@ const SkillsSection = () => {
           </p>
         </motion.div>
 
-        {/* Progress Bars */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-          {skills.map((skill, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {skillGroups.map((group, gi) => (
             <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={group.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="p-4 rounded-xl bg-card border border-border"
+              transition={{ duration: 0.4, delay: gi * 0.1 }}
+              className="p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-300"
             >
-              <div className="flex justify-between mb-2">
-                <span className="font-medium text-foreground">{skill.name}</span>
-                <span className="text-muted-foreground">{skill.level}%</span>
+              <h3 className="text-lg font-semibold text-foreground mb-4">
+                {group.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className={`px-3 py-1 text-sm rounded-full border ${group.accent}`}
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
-              <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: index * 0.1, ease: "easeOut" }}
-                  className={`h-full ${skill.color} rounded-full`}
-                />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Technology Icons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8"
-        >
-          <h3 className="text-xl font-semibold text-foreground mb-6">Tech Stack</h3>
-        </motion.div>
-
-        <div className="flex flex-wrap justify-center gap-4">
-          {technologies.map((tech, index) => (
-            <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-              whileHover={{ scale: 1.1 }}
-              className="px-4 py-3 rounded-xl bg-card border border-border hover:border-primary/30 transition-all duration-300 flex items-center gap-2"
-            >
-              <span className="text-xl">{tech.icon}</span>
-              <span className="text-sm font-medium text-foreground">{tech.name}</span>
             </motion.div>
           ))}
         </div>

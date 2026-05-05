@@ -4,12 +4,13 @@ import { useGitHub } from "@/context/GitHubContext";
 const AboutSection = () => {
   const { user, stats } = useGitHub();
 
-  const displayStats = [
-    { value: user?.public_repos || 0, label: "Repositories", color: "text-violet-400" },
-    { value: stats.totalContributions.toLocaleString(), label: "Contributions", color: "text-teal-400" },
-    { value: user?.followers?.toLocaleString() || "0", label: "Followers", color: "text-yellow-400" },
-    { value: stats.totalStars.toLocaleString(), label: "Stars", color: "text-primary" },
+  const allStats = [
+    { value: user?.public_repos || 0, raw: user?.public_repos || 0, label: "Repositories", color: "text-violet-400" },
+    { value: stats.totalContributions.toLocaleString(), raw: stats.totalContributions, label: "Contributions", color: "text-teal-400" },
+    { value: user?.followers?.toLocaleString() || "0", raw: user?.followers || 0, label: "Followers", color: "text-yellow-400" },
+    { value: stats.totalStars.toLocaleString(), raw: stats.totalStars, label: "Stars", color: "text-primary" },
   ];
+  const displayStats = allStats.filter((s) => Number(s.raw) > 0);
 
   return (
     <section id="about" className="px-6 py-20 border-t border-border">
@@ -48,7 +49,18 @@ const AboutSection = () => {
           )}
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {displayStats.length > 0 && (
+        <div
+          className={`grid gap-4 grid-cols-2 ${
+            displayStats.length === 1
+              ? "md:grid-cols-1"
+              : displayStats.length === 2
+              ? "md:grid-cols-2"
+              : displayStats.length === 3
+              ? "md:grid-cols-3"
+              : "md:grid-cols-4"
+          }`}
+        >
           {displayStats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -66,6 +78,7 @@ const AboutSection = () => {
             </motion.div>
           ))}
         </div>
+        )}
       </div>
     </section>
   );
