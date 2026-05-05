@@ -1,4 +1,4 @@
-import { Github } from "lucide-react";
+import { Github, FileDown } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Projects", href: "#projects" },
   { label: "Blogs", href: "#blogs" },
   { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -28,6 +29,14 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+          <a
+            href="/Basil_Waswani_Okata_CV.pdf"
+            download
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-sm font-medium"
+          >
+            <FileDown className="w-4 h-4" />
+            Resume
+          </a>
         </div>
       </div>
     </nav>
