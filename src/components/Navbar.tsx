@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#home" className="flex items-center gap-2 group">
           <Github className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-          <span className="font-semibold text-foreground">Portfolio</span>
+          <span className="font-semibold text-foreground">Basil Waswani Okata</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
