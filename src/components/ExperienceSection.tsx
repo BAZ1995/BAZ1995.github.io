@@ -28,7 +28,7 @@ const experiences = [
   {
     role: "ICT Officer (Technical Support)",
     company: "Iguhu Subcounty Hospital",
-    period: "Jul 2022 – Sep 2022",
+    period: "Jul 2021 – Sep 2022",
     location: "Kenya",
     points: [
       "Secured access and maintained the integrity of high-volume public health databases (HMIS), ensuring 100% compliance with data protection and medical confidentiality regulations.",
