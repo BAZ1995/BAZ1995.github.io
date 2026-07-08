@@ -13,7 +13,7 @@ const contactInfo = [
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/BAZ1995", label: "BAZ1995" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/basil-okata-515b1836b", label: "https://www.linkedin.com/in/basil-okata-515b1836b" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/basilokata/", label: "https://www.linkedin.com/in/basilokata/" },
   { icon: Twitter, href: "https://twitter.com/@BazMyster", label: "https://twitter.com/@BazMyster" },
 ];
 
