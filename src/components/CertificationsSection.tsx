@@ -29,6 +29,8 @@ const certifications = [
 ];
 
 const CertificationsSection = () => {
+  const assetBase = import.meta.env.BASE_URL;
+
   return (
     <section id="certifications" className="px-6 py-20 border-t border-border">
       <div className="max-w-6xl mx-auto">
@@ -51,7 +53,7 @@ const CertificationsSection = () => {
           {certifications.map((cert, index) => (
             <motion.a
               key={cert.name}
-              href={cert.file}
+              href={`${assetBase}${cert.file.replace(/^\//, "")}`}
               target="_blank"
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}

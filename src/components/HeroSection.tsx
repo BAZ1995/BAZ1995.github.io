@@ -6,10 +6,11 @@ import basilAvatar from "@/assets/basil-avatar.jpg";
 
 const HeroSection = () => {
   const { user, loading, error } = useGitHub();
+  const cvUrl = `${import.meta.env.BASE_URL}Basil_Waswani_Okata_CV.pdf`;
 
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/in/basilokata/", label: "LinkedIn" },
-    { icon: Twitter, href: user?.twitter_username ? `https://twitter.com/@BazMyster}` : "https://twitter.com/@BazMyster", label: "Twitter" },
+    { icon: Twitter, href: user?.twitter_username ? `https://twitter.com/${user.twitter_username}` : "https://twitter.com/BazMyster", label: "Twitter" },
     { icon: Mail, href: user?.email ? `mailto:${user.email}` : "mailto:basilokata@gmail.com", label: "Email" },
   ];
 
@@ -95,7 +96,7 @@ const HeroSection = () => {
                 </a>
               </Button>
               <Button variant="heroOutline" size="xl" asChild>
-                <a href="/Basil_Waswani_Okata_CV.pdf" download>
+                <a href={cvUrl} download>
                   <FileDown className="w-5 h-5" />
                   Download CV
                 </a>
