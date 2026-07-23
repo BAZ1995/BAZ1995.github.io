@@ -11,6 +11,8 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const cvUrl = `${import.meta.env.BASE_URL}Basil_Waswani_Okata_CV.pdf`;
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -30,7 +32,7 @@ const Navbar = () => {
             </a>
           ))}
           <a
-            href="/Basil_Waswani_Okata_CV.pdf"
+            href={cvUrl}
             download
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-sm font-medium"
           >
